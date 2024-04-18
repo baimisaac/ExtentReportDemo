@@ -44,7 +44,7 @@ public class BaseClass {
 		chromeOptions.addArguments("window-size=1980,1080");
 	    driver = new ChromeDriver(chromeOptions);
 		driver.manage().window().maximize();
-		driver.get("https://opensource-demo.orangehrmlive.com/index.php/");
+		driver.get("https://opensource-demo.orangehrmlive.com");
 	}
 
 	@AfterMethod
