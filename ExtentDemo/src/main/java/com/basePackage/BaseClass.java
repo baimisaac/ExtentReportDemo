@@ -1,12 +1,5 @@
 package com.basePackage;
-import java.net.MalformedURLException;
-import java.net.URL;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -45,21 +38,13 @@ public class BaseClass {
 
 	@BeforeMethod
 	public void setup() {
-		try {
-		WebDriverManager.chromedriver().browserVersion("124.0.6367.119").setup();
+		WebDriverManager.chromedriver().setup();
 		ChromeOptions chromeOptions= new ChromeOptions();
 		chromeOptions.addArguments("headless");
 		chromeOptions.addArguments("window-size=1980,1080");
 	    driver = new ChromeDriver(chromeOptions);
 		driver.manage().window().maximize();
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\asdip\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
-		driver = new RemoteWebDriver(new URL("http://localhost:9515"), chromeOptions);
-	} catch (MalformedURLException e) {
-        System.out.println("Invalid URL format: " + e.getMessage());
-	}
-
-
 	}
 
 	@AfterMethod
