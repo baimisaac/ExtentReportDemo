@@ -38,7 +38,7 @@ public class BaseClass {
 
 	@BeforeMethod
 	public void setup() {
-		WebDriverManager.chromedriver().setup();
+		WebDriverManager.chromedriver().browserVersion("124.0.6367.119").setup();
 		ChromeOptions chromeOptions= new ChromeOptions();
 		chromeOptions.addArguments("headless");
 		chromeOptions.addArguments("window-size=1980,1080");
